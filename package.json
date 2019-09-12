@@ -1,0 +1,25 @@
+{
+  "name": "beerflix",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "server": "./node_modules/.bin/http-server . -c-1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cerra88/beerflix.git"
+  },
+  "author": "Angel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cerra88/beerflix/issues"
+  },
+  "homepage": "https://github.com/cerra88/beerflix#readme",
+  "dependencies": {
+    "bulma-start": "0.0.3"
+  },
+  "devDependencies": {
+    "http-server": "^0.11.1"
+  }
+}
