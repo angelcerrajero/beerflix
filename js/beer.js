@@ -1,7 +1,7 @@
 import api from './api.js';
 
 const templateBeer = ({ beerId, name, description, image, price, ingredients, firstBrewed, contributedBy, likes }) => `
-<div class="card">
+<a href="/detail/${beerId}" class="card">
         <header class="card-header">
           <p class="card-header-title">${name}</p>
           <div class="card-header-icon" aria-label="more options">
@@ -29,27 +29,46 @@ const templateBeer = ({ beerId, name, description, image, price, ingredients, fi
           
           
         </footer>
-      </div>
+      </a>
 `;
 const { getBeer} = api();
 
-const renderBeer = (element, beers) => {
-    
+const renderBeer = (element, beers, startDate) => {
+    console.log(startDate) 
+    // console.log(beers) //aqui tengo q hacer cosas antes de limitar la busqueda a
+    if (startDate === undefined){
+        const htmlBeer = beers.slice(0,10).map(templateBeer).join('');
+        element.innerHTML = `
+         <div class="beer-section">
+             ${htmlBeer}
+         </div>
+        `;
+        
+    }else if (startDate != '/'){
+        const htmlBeer = beers.filter(item => item.firstBrewed === startDate).map(templateBeer).join('');
+        console.log(htmlBeer);
+        element.innerHTML = `
+        <div class="beer-section">
+            ${htmlBeer}
+         </div>
+        `;
+    }else{
     const htmlBeer = beers.slice(0,10).map(templateBeer).join('');
     element.innerHTML = `
     <div class="beer-section">
       ${htmlBeer}
     </div>
   `;
-
+    }
+    
 }
 
-const renderBeersDOM = async text =>{
+const renderBeersDOM = async (text, startDate) =>{
     try {
         const  mainSection = document.querySelector('#container');
         const items = await getBeer(text);
-        renderBeer(mainSection, items);
-
+        renderBeer(mainSection, items, startDate);
+        document.querySelector('#search-form .input.search').value = "";
         
     } catch (err) {
         console.log(err)

@@ -10,24 +10,19 @@
     <link rel="stylesheet" href="/css/bulma.css">
   </head>
   <header>
-    <nav class="navbar is-dark">
+    <nav class="navbar is-dark is-fixed-top">
       <div class="navbar-brand">
-        <a class="navbar-item" href="https://bulma.io">
+        <a class="navbar-item" href="http://127.0.0.1:3001/">
           <img src="./img/beerflix2.png" alt="BeerFlix - Your Digital Beer's information website" width="112" height="28">
         </a>
       </div>
         <div class="navbar-end">
             <div class="navbar-item">
-              <div class="field has-addons">
-                <div class="control">
-                  <input class="input" type="text" placeholder="Find a Beer">
-                </div>
-                <div class="control">
-                  <a class="button is-warning">
-                    Search
-                  </a>
-              </div>
-            </div>
+              <form id="search-form" class="field has-addons" >
+                  <input class="input search control" type="text" placeholder="Find a Beer">
+                  <input type="month" id="start-date" class="input start-date" value="" min="2002-01" max="2019-08" >
+                  <button type="submit" class="control button is-warning">Search</button>
+            </form>
           </div>
         </div>
       </div>
@@ -35,6 +30,7 @@
   </header>
   <body>
   <section class="section">
+    
     <div id="container">
     </div>
   </section>
@@ -43,6 +39,7 @@
   <script type="module" src="/js/api.js"></script>
   <script type="module" src="/js/beer.js"></script>
   <script type="module" src="/js/routes.js"></script>
+  <script type="module" src="/js/navbar.js"></script>
   
   </body>
 </html>
