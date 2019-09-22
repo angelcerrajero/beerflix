@@ -48,7 +48,6 @@ const api = (API_URL = 'https://web-bootcamp-exercise-beer-api-nijliozdcg.now.sh
 					url: `https://web-bootcamp-exercise-beer-api-nijliozdcg.now.sh/api/v1/beers/${id}/like`,
 					headers: {'X-API-KEY': API_KEY}
                 });
-                console.log(like.data)
                 return like.data;
 
                 

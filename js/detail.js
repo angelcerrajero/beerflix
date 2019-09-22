@@ -103,7 +103,7 @@ const renderDetail = async id => {
             const beerId = detailTemplate.beerId;
             await createLike(id);
             renderDetail(id);
-            alert('You liked')
+            alert('Thank you for your like!!');
             
         });
         
