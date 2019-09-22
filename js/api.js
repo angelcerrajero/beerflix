@@ -14,7 +14,10 @@ const api = (API_URL = 'https://web-bootcamp-exercise-beer-api-nijliozdcg.now.sh
 					url: requestUrl,
 					headers: {'X-API-KEY': API_KEY}
                 });
-                
+                if (beers.data.beers == 0){
+                    alert('No se encontraron resultados');
+                    throw new Error ('No se encontraron resultados')
+                }
 				return beers.data.beers;
              
             } catch (err) {

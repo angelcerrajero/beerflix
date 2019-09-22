@@ -39,7 +39,7 @@ const renderBeer = (element, beers, startDate) => {
         
         element.innerHTML = `
          <div class="beer-section">
-             ${htmlBeer}
+            ${htmlBeer}
          </div>
         `;
         
