@@ -13,7 +13,8 @@ const api = (API_URL = 'https://web-bootcamp-exercise-beer-api-nijliozdcg.now.sh
 					method: 'get',
 					url: requestUrl,
 					headers: {'X-API-KEY': API_KEY}
-				});
+                });
+                
 				return beers.data.beers;
              
             } catch (err) {
@@ -22,31 +23,43 @@ const api = (API_URL = 'https://web-bootcamp-exercise-beer-api-nijliozdcg.now.sh
             }
         },
 
-        getShowDetail: async id => {
-
+        getBeerDetail: async id => {
             try {
                 const beers = await axios({
 					method: 'get',
 					url: `https://web-bootcamp-exercise-beer-api-nijliozdcg.now.sh/api/v1/beers/${id}`,
 					headers: {'X-API-KEY': API_KEY}
-				});
-				return beers.data.beers;
+                });
+                return beers.data.beer;
+                
              
             } catch (error) {
-                
-            }
-            // try {
-            //   const response = await fetch(`${showsAPIEndpoint}/${id}`);
-            //   if (!response.ok) {
-            //     throw new Error('Error getting a show');
-            //   }
-            //   const show = await response.json();
-            //   return show;
-            // } catch (err) {
-            //   console.error(err);
-            //   throw err;
-            // }
+                console.log(err.message);
+                throw err;
+            };
+          
           },
+
+        createLike: async id => {
+
+            try {
+                const like = await axios({
+					method: 'POST',
+					url: `https://web-bootcamp-exercise-beer-api-nijliozdcg.now.sh/api/v1/beers/${id}/like`,
+					headers: {'X-API-KEY': API_KEY}
+                });
+                console.log(like.data)
+                return like.data;
+
+                
+            } catch (error) {
+                console.log(err.message)
+                throw err;
+            }
+
+
+
+        }
 
 
     }

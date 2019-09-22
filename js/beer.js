@@ -24,10 +24,8 @@ const templateBeer = ({ beerId, name, description, image, price, ingredients, fi
         </div>
         
         <footer class="card-footer">
-          <a href="#" class="card-footer-item">Price: ${price}$</a>
-          <a href="#" class="card-footer-item">${likes}: Likes</a>
-          
-          
+          <div class="card-footer-item">Price: ${price}$</div>
+          <div class="card-footer-item">${likes}: Likes</div>
         </footer>
       </a>
 `;
@@ -38,6 +36,7 @@ const renderBeer = (element, beers, startDate) => {
     // console.log(beers) //aqui tengo q hacer cosas antes de limitar la busqueda a
     if (startDate === undefined){
         const htmlBeer = beers.slice(0,10).map(templateBeer).join('');
+        
         element.innerHTML = `
          <div class="beer-section">
              ${htmlBeer}
@@ -46,7 +45,7 @@ const renderBeer = (element, beers, startDate) => {
         
     }else if (startDate != '/'){
         const htmlBeer = beers.filter(item => item.firstBrewed === startDate).map(templateBeer).join('');
-        console.log(htmlBeer);
+
         element.innerHTML = `
         <div class="beer-section">
             ${htmlBeer}
@@ -65,7 +64,7 @@ const renderBeer = (element, beers, startDate) => {
 
 const renderBeersDOM = async (text, startDate) =>{
     try {
-        const  mainSection = document.querySelector('#container');
+        const  mainSection = document.querySelector('section');
         const items = await getBeer(text);
         renderBeer(mainSection, items, startDate);
         document.querySelector('#search-form .input.search').value = "";

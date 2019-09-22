@@ -1,0 +1,96 @@
+import api from './api.js';
+
+
+const { getBeerDetail } = api();
+
+
+const detailTemplate = ({ beerId, name, description, image, price, ingredients, firstBrewed, contributedBy, likes}) => 
+`
+    <div class="tile is-parent">
+    <div class="tile is-4 is-vertical is-parent">
+    <div class="tile is-child box name-image">
+        <p class="title is-warning">${name}</p>
+        <img class="img-cerve-detail"src="${image}" alt="">
+    </div>
+    <div class="tile is-child box">
+        <u><p class="title">BEER INFO</p></u>
+        <br>
+        <p>${description}</p>
+        <br>
+        <time>Brewed on: ${firstBrewed}</time>
+        <br>
+        <h8>Created by: ${contributedBy} </h8>
+        <p>Beer Price: ${price}</p>
+    </div>
+    </div>
+    <div id="ingredients">
+        <div class="tile is-parent">
+            <div class="tile is-child box">
+                <u><p class="title">Malt</p></u>
+                    <br>
+                        <div id="list">
+                            
+                        </div>
+                                        
+            </div>
+        </div>
+    </div>
+    
+`;
+
+const detailTemaplateIngredients = ({ name }) => 
+`
+    <div class="list-item">
+        <p>${name}</p>
+    </div>
+    
+    
+`;
+
+
+const renderIngredients = (element, malt, hops, yeast) => {
+    const htmlMalt = malt.map(detailTemaplateIngredients).join('');
+    const htmlHops = hops.map(detailTemaplateIngredients).join('');
+    
+    element.innerHTML = `
+      <div class="show-ingredients">
+        ${htmlMalt}
+      </div>
+      <div class="show-ingredients">
+      <br>
+      <br>
+      <u><p class="title">Hops</p></u>
+      <br>
+        ${htmlHops}
+      <br>
+      <br>
+      <u><p class="title">Yeast</p></u>
+    </div>    
+    <br>
+        ${yeast}
+    `;
+}
+
+
+const renderDetail = async id => {
+    try {
+        const mainSection = document.querySelector('section');
+        const beer = await getBeerDetail(id);
+        console.log(beer)
+        mainSection.innerHTML = detailTemplate(beer);
+        const ingredientsSection = document.querySelector('#list')
+        const { ingredients: { malt,  hops, yeast } } = beer;
+        renderIngredients(ingredientsSection, malt, hops, yeast);
+        // console.log(beer);
+        // console.log(malt);
+        
+        // ingredientsSection.innerHTML = detailIngredients(malt);
+
+        
+
+    } catch (err) {
+        console.error(err);
+    }
+  };
+  
+  export default renderDetail;

@@ -13,7 +13,6 @@ page('/detail/:id', ctx => {
   const { params: { id } } = ctx;
   // hideFilter();
   // showQuotesForm();
-  console.log(id)
   renderDetail(id);
   // addQuoteListener(id);
 });
