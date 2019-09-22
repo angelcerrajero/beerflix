@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BeerFlix - Digital Beer </title>
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css"> -->
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/bulma.css">
+  </head>
+  <header>
+    <nav class="navbar is-dark is-fixed-top">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="http://127.0.0.1:3001/">
+          <img src="./img/beerflix2.png" alt="BeerFlix - Your Digital Beer's information website" width="112" height="28">
+        </a>
+      </div>
+        <div class="navbar-end">
+            <div class="navbar-item">
+              <form id="search-form" class="field has-addons" >
+                  <input class="input search control" type="text" placeholder="Find a Beer">
+                  <input type="month" id="start-date" class="input start-date" value="" min="2002-01" max="2019-08" >
+                  <button type="submit" class="control button is-warning">Search</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <body>
+  <section class="section"> 
+        <div class="card">
+                <div class="card-image">
+                  <figure class="image is-4by3">
+                    <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+                  </figure>
+                </div>
+                <div class="card-content">
+                  <div class="media">
+                    <div class="media-left">
+                      
+                    </div>
+                    <div class="media-content">
+                      
+                      
+                    </div>
+                  </div>
+              
+                  <div class="content">
+                    <p class="title is-4">Name</p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Phasellus nec iaculis mauris. <a>@bulmaio</a>.
+                    <a href="#">#css</a> <a href="#">#responsive</a>
+                    <br>
+                    <br>
+                    <p class="title is-4">Description</p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Phasellus nec iaculis mauris. <a>@bulmaio</a>.
+                    <a href="#">#css</a> <a href="#">#responsive</a>
+                    <br>
+                    <br>
+                    <p class="title is-4">Ingredients</p>
+                    <div id="list">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Phasellus nec iaculis mauris. <a>@bulmaio</a>.
+                    <a href="#">#css</a> <a href="#">#responsive</a>
+                    </div>
+                  </div>
+                </div>
+                <footer class="card-footer">
+                        <a href="#" class="card-footer-item">Like</a>
+                        <!-- <a href="#" class="card-footer-item">Edit</a>
+                        <a href="#" class="card-footer-item">Delete</a> -->
+                      </footer>
+              </div>
+
+        <!-- <div class="tile is-parent">
+                <div class="tile is-4 is-vertical is-parent">
+                <div class="tile is-child box">
+                    <p class="title is-warning">${name}</p>
+                    <img class="img-cerve"src="${image}" alt="">
+                </div>
+                <div class="tile is-child box">
+                    <u><p class="title">BEER INFO</p></u>
+                    <br>
+                    <p>${description}</p>
+                    <br>
+                    <time>Brewed on: ${firstBrewed}</time>
+                    <br>
+                    <h8>Created by: ${contributedBy} </h8>
+                    <p>Beer Price: ${price}</p>
+                </div>
+                </div>
+                <div id="ingredients">
+                        <div class="tile is-parent">
+                                <div class="tile is-child box">
+                                        <u><p class="title">INGREDIENTS</p></u>
+                                        <br>
+                                        <div id="list">
+                                            <p>${description}</p>
+                                            <p>${description}</p>
+                                            <p>${description}</p>
+                                            <p>${description}</p>
+                                        </div>
+                                        
+                                </div>
+                        </div>
+                </div> -->
+  </section>
+  <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script type="module" src="/js/api.js"></script>
+  <script type="module" src="/js/beer.js"></script>
+  <script type="module" src="/js/routes.js"></script>
+  <script type="module" src="/js/navbar.js"></script>
+  
+  </body>
+</html>
