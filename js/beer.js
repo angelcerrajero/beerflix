@@ -29,6 +29,7 @@ const templateBeer = ({ beerId, name, description, image, price, ingredients, fi
         </footer>
       </a>
 `;
+
 const { getBeer} = api();
 
 const renderBeer = (element, beers, startDate) => {
